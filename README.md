@@ -47,16 +47,16 @@ Examples of **correct** code for this rule:
 
 ```js
 
-const FOO = 'qqq',
-const FOO = 123,
-const FOO = ['123', 123],
-const FOO = {a: 1, b: 2}
+const FOO = 'bar',
+const FOO = 42,
+const FOO = ['bar', 42],
+const FOO = {bar: 42}
 
-const foo = `bar ${abr} arb`,
-const foo = myFunc(),
-const foo = test ? 'qwe' : 'ewq',
-const foo = require('me'),
-const foo = bro.hello()
+const foo = `42 ${bar}`,
+const foo = bar(),
+const foo = bar ? bar : 42,
+const foo = require('bar'),
+const foo = bar.hello()
 
 ```
 
