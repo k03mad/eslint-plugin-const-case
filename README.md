@@ -51,6 +51,7 @@ const FOO = 'bar';
 const FOO = 42;
 const FOO = ['bar', 42];
 const FOO = {bar: 42};
+const FOO = require('bar');
 
 const foo = `42 ${bar};
 const foo = bar();

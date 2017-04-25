@@ -99,15 +99,6 @@ ruleTester.run('const-uppercase', rule, {
             ]
         },
         {
-            code: "const FOO = require('bar')",
-            errors: [
-                {
-                    message: "const should be in lower case",
-                    type: "VariableDeclaration"
-                }
-            ]
-        },
-        {
             code: "const FOO = bar.baz()",
             errors: [
                 {
@@ -186,6 +177,7 @@ ruleTester.run('const-uppercase', rule, {
         "const foo = bar()",
         "const foo = bar ? 'baz' : qux",
         "const foo = require('bar')",
+        "const FOO = require('bar')",
         "const FOO = 'bar'",
         "const FOO = 42",
         "const FOO = []",
