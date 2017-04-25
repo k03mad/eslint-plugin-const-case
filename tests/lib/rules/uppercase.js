@@ -4,7 +4,7 @@
 const rule = require('../../../lib/rules/uppercase');
 const {RuleTester} = require('eslint');
 
-const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2015}});
+const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2017}});
 ruleTester.run('const-uppercase', rule, {
 
     invalid: [
@@ -115,6 +115,15 @@ ruleTester.run('const-uppercase', rule, {
                     type: "VariableDeclaration"
                 }
             ]
+        },
+        {
+            code: "async function foo() {const BAR = await baz()}",
+            errors: [
+                {
+                    message: "dependable const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
         }
     ],
 
@@ -131,6 +140,7 @@ ruleTester.run('const-uppercase', rule, {
         "const FOO = {a: 1, b: 2}",
         "const {length} = arr",
         "const foo = bro.hello()",
-        "const foo = bar => bar"
+        "const foo = bar => bar",
+        "async function foo() {const bar = await baz()}"
     ]
 });

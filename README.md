@@ -54,10 +54,11 @@ const FOO = {bar: 42};
 
 const foo = `42 ${bar};
 const foo = bar();
-const foo = bar ? bar : 42;
+const foo = bar ? baz : 42;
 const foo = require('bar');
 const foo = bar.hello();
 const foo = bar => bar;
+const foo = await bar();
 
 ```
 
