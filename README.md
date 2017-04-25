@@ -22,7 +22,7 @@ $ npm install eslint-plugin-const-case --save-dev
 
 Add `const-case` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
-```json
+```js
 {
     'plugins': [
         'const-case'
@@ -33,7 +33,7 @@ Add `const-case` to the plugins section of your `.eslintrc` configuration file. 
 
 Then configure the rules you want to use under the rules section.
 
-```json
+```js
 {
     'rules': {
         'const-case/uppercase': 'error'
