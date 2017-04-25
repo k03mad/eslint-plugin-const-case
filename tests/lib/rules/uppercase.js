@@ -274,6 +274,7 @@ ruleTester.run('const-uppercase', rule, {
         "const FOO = {bar: 42, baz: ['qux', 'quux']}",
         "const foo = {bar: 42, baz: [`${qux} quux`]}",
         "const foo = {bar: `${baz} qux`, quux: ['']}",
-        "const foo = {bar: [`${baz} qux`], quux: ['']}"
+        "const foo = {bar: [`${baz} qux`], quux: ['']}",
+        "const foo = {bar: [`${baz} qux`], quux: ['']}; const FOO = []"
     ]
 });
