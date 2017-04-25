@@ -1,0 +1,42 @@
+{
+  "name": "eslint-plugin-const-case",
+  "version": "0.0.1",
+  "description": "real const must be in uppercase",
+  "private": false,
+  "maintainers": [
+    "Molchanov Kirill <k03.mad@gmail.com>"
+  ],
+  "repository": [
+    {
+      "type": "git",
+      "url": "https://github.com/k03mad/eslint-plugin-const-case/"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/k03mad/eslint-plugin-const-case/issues"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive",
+    "lint": "eslint ./lib && eslint ./tests"
+  },
+  "dependencies": {
+    "requireindex": "1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "4.0.0-alpha.1",
+    "eslint-plugin-node": "4.2.2",
+    "mocha": "3.3.0",
+    "pre-commit": "1.2.2"
+  },
+  "precommit": "lint",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "license": "ISC"
+}
