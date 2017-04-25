@@ -56,6 +56,7 @@ const foo = `42 ${bar};
 const foo = bar();
 const foo = bar ? baz : 42;
 const foo = require('bar');
+const foo = bar.baz;
 const foo = bar.baz();
 const foo = bar => baz;
 const foo = await bar();
