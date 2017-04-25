@@ -5,8 +5,7 @@
 ## Installation
 
 ```
-$ npm i eslint --save-dev
-$ npm install eslint-plugin-const-case --save-dev
+$ npm i eslint eslint-plugin-const-case --save-dev
 ```
 
 ## Usage
