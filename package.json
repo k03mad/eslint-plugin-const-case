@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "check for const case",
   "private": false,
   "maintainers": [
