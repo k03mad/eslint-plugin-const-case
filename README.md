@@ -24,8 +24,8 @@ Add `const-case` to the plugins section of your `.eslintrc` configuration file. 
 
 ```json
 {
-    "plugins": [
-        "const-case"
+    'plugins': [
+        'const-case'
     ]
 }
 ```
@@ -35,7 +35,7 @@ Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    rules: {
+    'rules': {
         'const-case/uppercase': 'error'
     }
 }
