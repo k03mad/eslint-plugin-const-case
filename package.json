@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "check for const case",
   "private": false,
   "maintainers": [
@@ -29,6 +29,7 @@
     "requireindex": "1.1.0"
   },
   "devDependencies": {
+    "debug": "2.6.4",
     "eslint": "4.0.0-alpha.1",
     "eslint-plugin-node": "4.2.2",
     "mocha": "3.3.0",

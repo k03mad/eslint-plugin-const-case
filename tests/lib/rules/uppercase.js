@@ -151,6 +151,15 @@ ruleTester.run('const-uppercase', rule, {
                     type: "VariableDeclaration"
                 }
             ]
+        },
+        {
+            code: "const FOO = new bar()",
+            errors: [
+                {
+                    message: "const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
         }
     ],
 
@@ -172,6 +181,7 @@ ruleTester.run('const-uppercase', rule, {
         "async function foo() {const bar = await baz()}",
         "for (const foo of bar) {}",
         "const foo = bar.baz",
-        "const foo = bar * baz"
+        "const foo = bar * baz",
+        "const foo = new bar()"
     ]
 });
