@@ -12,16 +12,16 @@ ruleTester.run('const-uppercase', rule, {
             code: "const foo = 'bar'",
             errors: [
                 {
-                    message: "real const should be in upper case",
+                    message: "const should be in upper case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const foo = 123",
+            code: "const foo = 42",
             errors: [
                 {
-                    message: "real const should be in upper case",
+                    message: "const should be in upper case",
                     type: "VariableDeclaration"
                 }
             ]
@@ -30,7 +30,7 @@ ruleTester.run('const-uppercase', rule, {
             code: "const foo = []",
             errors: [
                 {
-                    message: "real const should be in upper case",
+                    message: "const should be in upper case",
                     type: "VariableDeclaration"
                 }
             ]
@@ -39,79 +39,79 @@ ruleTester.run('const-uppercase', rule, {
             code: "const foo = {}",
             errors: [
                 {
-                    message: "real const should be in upper case",
+                    message: "const should be in upper case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const foo = ['123', 123]",
+            code: "const foo = ['bar', 42]",
             errors: [
                 {
-                    message: "real const should be in upper case",
+                    message: "const should be in upper case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const foo = {a: 1, b: 2}",
+            code: "const foo = {bar: 42, baz: 'qux'}",
             errors: [
                 {
-                    message: "real const should be in upper case",
+                    message: "const should be in upper case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const FOO = `bar ${sbar} qbar`",
+            code: "const FOO = `42 ${bar}`",
             errors: [
                 {
-                    message: "dependable const should be in lower case",
+                    message: "const should be in lower case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const FOO = myFunc()",
+            code: "const FOO = bar()",
             errors: [
                 {
-                    message: "dependable const should be in lower case",
+                    message: "const should be in lower case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const FOO = bar => bar",
+            code: "const FOO = bar => baz",
             errors: [
                 {
-                    message: "dependable const should be in lower case",
+                    message: "const should be in lower case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const FOO = test ? 'qwe' : 'ewq'",
+            code: "const FOO = bar ? 'baz' : qux",
             errors: [
                 {
-                    message: "dependable const should be in lower case",
+                    message: "const should be in lower case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const FOO = require('me')",
+            code: "const FOO = require('bar')",
             errors: [
                 {
-                    message: "dependable const should be in lower case",
+                    message: "const should be in lower case",
                     type: "VariableDeclaration"
                 }
             ]
         },
         {
-            code: "const FOO = bro.hello()",
+            code: "const FOO = bar.baz()",
             errors: [
                 {
-                    message: "dependable const should be in lower case",
+                    message: "const should be in lower case",
                     type: "VariableDeclaration"
                 }
             ]
@@ -120,7 +120,16 @@ ruleTester.run('const-uppercase', rule, {
             code: "async function foo() {const BAR = await baz()}",
             errors: [
                 {
-                    message: "dependable const should be in lower case",
+                    message: "const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
+        },
+        {
+            code: "for (const FOO of bar) {}",
+            errors: [
+                {
+                    message: "const should be in lower case",
                     type: "VariableDeclaration"
                 }
             ]
@@ -128,19 +137,21 @@ ruleTester.run('const-uppercase', rule, {
     ],
 
     valid: [
-        "const foo = `bar ${sbar} qbar`",
-        "const foo = myFunc()",
-        "const foo = test ? 'qwe' : 'ewq'",
-        "const foo = require('me')",
-        "const FOO = 'qqq'",
-        "const FOO = 123",
+        "const foo = `bar ${baz} qbar`",
+        "const foo = bar()",
+        "const foo = bar ? 'baz' : qux",
+        "const foo = require('bar')",
+        "const FOO = 'bar'",
+        "const FOO = 42",
         "const FOO = []",
-        "const FOO = ['123', 123]",
+        "const FOO = ['bar', 42]",
         "const FOO = {}",
-        "const FOO = {a: 1, b: 2}",
-        "const {length} = arr",
-        "const foo = bro.hello()",
-        "const foo = bar => bar",
-        "async function foo() {const bar = await baz()}"
+        "const FOO = {bar: 42, baz: 'qux'}",
+        "const {FOO} = bar",
+        "const {foo} = bar",
+        "const foo = bar.baz()",
+        "const foo = bar => baz",
+        "async function foo() {const bar = await baz()}",
+        "for (const foo of bar) {}"
     ]
 });

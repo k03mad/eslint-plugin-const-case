@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "0.0.4",
-  "description": "real const must be in uppercase",
+  "version": "0.0.5",
+  "description": "check for const case",
   "private": false,
   "maintainers": [
     "Molchanov Kirill <k03.mad@gmail.com>"
