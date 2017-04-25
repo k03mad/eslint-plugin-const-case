@@ -60,6 +60,7 @@ const foo = bar.baz;
 const foo = bar.baz();
 const foo = bar => baz;
 const foo = await bar();
+const foo = {bar: baz => qux};
 for (const foo of bar) {};
 ```
 

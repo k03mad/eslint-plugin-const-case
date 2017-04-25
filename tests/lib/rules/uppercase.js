@@ -160,6 +160,15 @@ ruleTester.run('const-uppercase', rule, {
                     type: "VariableDeclaration"
                 }
             ]
+        },
+        {
+            code: "const FOO = {bar: baz => qux}",
+            errors: [
+                {
+                    message: "const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
         }
     ],
 
@@ -182,6 +191,7 @@ ruleTester.run('const-uppercase', rule, {
         "for (const foo of bar) {}",
         "const foo = bar.baz",
         "const foo = bar * baz",
-        "const foo = new bar()"
+        "const foo = new bar()",
+        "const foo = {bar: baz => qux}"
     ]
 });
