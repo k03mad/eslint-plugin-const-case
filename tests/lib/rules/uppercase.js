@@ -81,6 +81,15 @@ ruleTester.run('const-uppercase', rule, {
             ]
         },
         {
+            code: "const FOO = bar => bar",
+            errors: [
+                {
+                    message: "dependable const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
+        },
+        {
             code: "const FOO = test ? 'qwe' : 'ewq'",
             errors: [
                 {
@@ -121,6 +130,7 @@ ruleTester.run('const-uppercase', rule, {
         "const FOO = {}",
         "const FOO = {a: 1, b: 2}",
         "const {length} = arr",
-        "const foo = bro.hello()"
+        "const foo = bro.hello()",
+        "const foo = bar => bar"
     ]
 });
