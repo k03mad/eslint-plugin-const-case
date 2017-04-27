@@ -241,6 +241,24 @@ ruleTester.run('const-uppercase', rule, {
                     type: "VariableDeclaration"
                 }
             ]
+        },
+        {
+            code: "const FOO = {bar: {asd: '123'}, quux: [`${baz} quz`]}",
+            errors: [
+                {
+                    message: "const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
+        },
+        {
+            code: "const FOO = {bar: [''], quux: [`${baz} quz`]}",
+            errors: [
+                {
+                    message: "const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
         }
     ],
 
@@ -274,6 +292,8 @@ ruleTester.run('const-uppercase', rule, {
         "const FOO = {bar: 42, baz: ['qux', 'quux']}",
         "const foo = {bar: 42, baz: [`${qux} quux`]}",
         "const foo = {bar: `${baz} qux`, quux: ['']}",
-        "const foo = {bar: [`${baz} qux`], quux: ['']}"
+        "const foo = {bar: [`${baz} qux`], quux: ['']}",
+        "const foo = {bar: {asd: '123'}, quux: [`${baz} quz`]}",
+        "const foo = {bar: [''], quux: [`${baz} quz`]}"
     ]
 });

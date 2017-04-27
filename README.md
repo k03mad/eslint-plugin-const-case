@@ -32,22 +32,13 @@ Examples of **correct** code for this rule:
 const FOO = 'bar';
 const FOO = 42;
 const FOO = ['bar', 42];
-const FOO = {bar: 42};
-const FOO = require('bar');
+const FOO = {bar: 42, baz: 'qux'};
 
 const foo = `42 ${bar}`;
 const foo = bar();
 const foo = bar ? baz : 42;
-const foo = require('bar');
-const foo = bar.baz;
 const foo = bar.baz();
 const foo = bar => baz;
-const foo = await bar();
-const foo = {bar: baz => qux};
-for (const foo of bar) {};
+const foo = {bar: baz};
+const foo = [bar, baz, 42];
 ```
-
-
-
-
-
