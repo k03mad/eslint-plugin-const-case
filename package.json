@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "check for const case",
   "private": false,
   "maintainers": [
@@ -24,6 +24,9 @@
   "scripts": {
     "test": "mocha tests --recursive",
     "lint": "eslint ./lib && eslint ./tests"
+  },
+  "dependencies": {
+    "requireindex": "1.1.0"
   },
   "devDependencies": {
     "debug": "2.6.4",
