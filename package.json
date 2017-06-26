@@ -1,11 +1,9 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "check for const case",
   "private": false,
-  "maintainers": [
-    "Molchanov Kirill <k03.mad@gmail.com>"
-  ],
+  "maintainers": "k03.mad@gmail.com>",
   "repository": [
     {
       "type": "git",
@@ -29,10 +27,10 @@
     "requireindex": "1.1.0"
   },
   "devDependencies": {
-    "debug": "2.6.4",
-    "eslint": "4.0.0-alpha.1",
-    "eslint-plugin-node": "4.2.2",
-    "mocha": "3.3.0",
+    "debug": "2.6.8",
+    "eslint": "4.1.1",
+    "eslint-plugin-node": "5.1.0",
+    "mocha": "3.4.2",
     "pre-commit": "1.2.2"
   },
   "precommit": "lint",
