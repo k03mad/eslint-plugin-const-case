@@ -33,6 +33,7 @@ const FOO = 'bar';
 const FOO = 42;
 const FOO = ['bar', 42];
 const FOO = {bar: 42, baz: 'qux'};
+const FOO = 1000 * 60 * 10;
 
 const foo = `42 ${bar}`;
 const foo = bar();

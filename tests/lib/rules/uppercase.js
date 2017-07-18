@@ -259,6 +259,33 @@ ruleTester.run('const-uppercase', rule, {
                     type: "VariableDeclaration"
                 }
             ]
+        },
+        {
+            code: "const foo = 2 * 2",
+            errors: [
+                {
+                    message: "const should be in upper case",
+                    type: "VariableDeclaration"
+                }
+            ]
+        },
+        {
+            code: "const foo = 2 * 2 * 10",
+            errors: [
+                {
+                    message: "const should be in upper case",
+                    type: "VariableDeclaration"
+                }
+            ]
+        },
+        {
+            code: "const FOO = 2 * bar",
+            errors: [
+                {
+                    message: "const should be in lower case",
+                    type: "VariableDeclaration"
+                }
+            ]
         }
     ],
 
@@ -294,6 +321,9 @@ ruleTester.run('const-uppercase', rule, {
         "const foo = {bar: `${baz} qux`, quux: ['']}",
         "const foo = {bar: [`${baz} qux`], quux: ['']}",
         "const foo = {bar: {asd: '123'}, quux: [`${baz} quz`]}",
-        "const foo = {bar: [''], quux: [`${baz} quz`]}"
+        "const foo = {bar: [''], quux: [`${baz} quz`]}",
+        "const FOO = 2 * 2",
+        "const FOO = 2 * 2 * 10",
+        "const foo = 2 * bar"
     ]
 });
