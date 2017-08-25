@@ -26,6 +26,7 @@ Add `const-case` to the `.eslintrc` configuration file.
 ## Rule Details
 
 **WARNING! From 1.0.0 only literals should be in UPPER_CASE.**
+
 Examples of correct code for this rule:
 
 ```js
