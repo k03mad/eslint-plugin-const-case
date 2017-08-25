@@ -1,8 +1,8 @@
 /* eslint-disable quotes */
 /* eslint-disable no-template-curly-in-string */
 
-const rule = require('../rules/uppercase');
-const msg = require('../rules/lib/message');
+const rule = require('../lib/rules/uppercase');
+const msg = require('../lib/message');
 
 const {RuleTester} = require('eslint');
 const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2017}});
