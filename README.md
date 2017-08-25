@@ -25,16 +25,19 @@ Add `const-case` to the `.eslintrc` configuration file.
 
 ## Rule Details
 
+**WARNING!**
+From v1.0.0 only literals should be in UPPER_CASE.
+
 Examples of **correct** code for this rule:
 
 ```js
 
 const FOO = 'bar';
 const FOO = 42;
-const FOO = ['bar', 42];
-const FOO = {bar: 42, baz: 'qux'};
-const FOO = 1000 * 60 * 10;
 
+const foo = ['bar', 42];
+const foo = {bar: 42, baz: 'qux'};
+const foo = 1000 * 60 * 10;
 const foo = `42 ${bar}`;
 const foo = bar();
 const foo = bar ? baz : 42;

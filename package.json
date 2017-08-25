@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "0.5.2",
-  "description": "check for const case",
+  "version": "1.0.0",
+  "description": "Check for const case",
   "private": false,
   "maintainers": "k03.mad@gmail.com",
   "repository": [
@@ -27,10 +27,10 @@
     "requireindex": "1.1.0"
   },
   "devDependencies": {
-    "debug": "2.6.8",
-    "eslint": "4.2.0",
-    "eslint-plugin-node": "5.1.0",
-    "mocha": "3.4.2",
+    "debug": "3.0.1",
+    "eslint": "4.5.0",
+    "eslint-plugin-node": "5.1.1",
+    "mocha": "3.5.0",
     "pre-commit": "1.2.2"
   },
   "precommit": "lint",
