@@ -7,134 +7,134 @@ const msg = require('../lib/message');
 const {RuleTester} = require('eslint');
 const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2017}});
 
-const type = 'VariableDeclaration';
+const TYPE = 'VariableDeclaration';
 
 ruleTester.run('const-uppercase', rule, {
 
     invalid: [
         {
             code: "const foo = 'bar'",
-            errors: [{message: msg.upper, type}]
+            errors: [{TYPE, message: msg.upper}]
         },
         {
             code: "const foo = 42",
-            errors: [{message: msg.upper, type}]
+            errors: [{TYPE, message: msg.upper}]
         },
         {
             code: "const FOO = []",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = ['bar', 42]",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: 42, baz: 'qux'}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = `42 ${bar}`",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = bar()",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = bar => baz",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = bar ? 'baz' : qux",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = bar.baz()",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "async function foo() {const BAR = await baz()}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "for (const FOO of bar) {}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = bar.baz",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = bar * baz",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = new bar()",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: baz => qux}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = baz || qux",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = [bar, baz]",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: 42, baz: {qux: 'quux'}}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: 42, baz: ['qux', 'quux']}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: 42, baz: {}}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: 42, baz: []}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: 42, baz: [`${qux} quux`]}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: `${baz} qux`, quux: ['']}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: [`${baz} qux`], quux: ['']}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: {asd: '123'}, quux: [`${baz} quz`]}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = {bar: [''], quux: [`${baz} quz`]}",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = 2 * 2",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = 2 * 2 * 10",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         },
         {
             code: "const FOO = 2 * bar",
-            errors: [{message: msg.lower, type}]
+            errors: [{TYPE, message: msg.lower}]
         }
     ],
 

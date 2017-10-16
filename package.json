@@ -1,41 +1,38 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check for const case",
-  "private": false,
-  "maintainers": "k03.mad@gmail.com",
-  "repository": [
-    {
-      "type": "git",
-      "url": "https://github.com/k03mad/eslint-plugin-const-case/"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/k03mad/eslint-plugin-const-case/issues"
-  },
   "keywords": [
     "eslint",
-    "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "eslintplugin"
   ],
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "mocha tests --recursive",
-    "lint": "eslint ./lib && eslint ./tests"
+  "maintainers": [
+    "Kirill Molchanov <k03.mad@gmail.com"
+  ],
+  "repository": "k03mad/eslint-plugin-const-case",
+  "engines": {
+    "node": ">=6"
   },
+  "main": "lib/index.js",
   "dependencies": {
     "requireindex": "1.1.0"
   },
   "devDependencies": {
-    "debug": "3.0.1",
-    "eslint": "4.5.0",
-    "eslint-plugin-node": "5.1.1",
-    "mocha": "3.5.0",
+    "debug": "3.1.0",
+    "eslint": "4.9.0",
+    "eslint-plugin-const-case": "1.0.0",
+    "eslint-plugin-node": "5.2.0",
+    "eslint-plugin-promise": "3.6.0",
+    "mocha": "4.0.1",
     "pre-commit": "1.2.2"
   },
-  "precommit": "lint",
-  "engines": {
-    "node": ">=6.0.0"
+  "scripts": {
+    "clean": "rm -rf ./node_modules || true",
+    "lint": "eslint --report-unused-disable-directives ./ --cache --format codeframe && echo '\n\\033[34mESLinted!\\033[39m\n'",
+    "setup": "npm run clean && npm i",
+    "test": "mocha tests --recursive"
   },
-  "license": "ISC"
+  "precommit": "lint",
+  "license": "MIT"
 }
