@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Check for const case",
   "keywords": [
     "eslint",
@@ -19,7 +19,6 @@
     "requireindex": "1.1.0"
   },
   "devDependencies": {
-    "debug": "3.1.0",
     "eslint": "4.13.0",
     "eslint-config-k03mad": "0.1.2",
     "eslint-plugin-const-case": "1.0.1",
