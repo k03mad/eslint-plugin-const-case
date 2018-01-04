@@ -21,6 +21,10 @@ ruleTester.run('const-uppercase', rule, {
             errors: [{TYPE, message: msg.upper}]
         },
         {
+            code: "const foo = -42",
+            errors: [{TYPE, message: msg.upper}]
+        },
+        {
             code: "const FOO = []",
             errors: [{TYPE, message: msg.lower}]
         },
@@ -146,6 +150,7 @@ ruleTester.run('const-uppercase', rule, {
         "const FOO = require('bar')",
         "const FOO = 'bar'",
         "const FOO = 42",
+        "const FOO = -42",
         "const foo = []",
         "const foo = ['bar', 42]",
         "const foo = {}",
