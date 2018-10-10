@@ -33,5 +33,6 @@
     "setup": "npm run clean && npm i",
     "test": "mocha tests --recursive"
   },
-  "precommit": "lint"
+  "precommit": "lint",
+  "license": "Unlicense"
 }
