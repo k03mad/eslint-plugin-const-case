@@ -3,8 +3,8 @@
 
 const rule = require('../lib/rules/uppercase');
 const msg = require('../lib/message');
-
 const {RuleTester} = require('eslint');
+
 const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2017}});
 
 const TYPE = 'VariableDeclaration';
@@ -180,6 +180,8 @@ ruleTester.run('const-uppercase', rule, {
         "const foo = 2 * 2 * 10",
         "const foo = 2 * bar",
         "const foo = require(bar)",
-        "const FOO = require(bar)"
+        "const FOO = require(bar)",
+        "const _ = 'foo'",
+        "const $ = 'bar'"
     ]
 });

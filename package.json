@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Check for const case",
   "keywords": [
     "eslint",
@@ -16,15 +16,15 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "requireindex": "1.1.0"
+    "requireindex": "1.2.0"
   },
   "devDependencies": {
-    "eslint": "4.13.0",
-    "eslint-config-k03mad": "0.1.2",
-    "eslint-plugin-const-case": "1.0.1",
-    "eslint-plugin-node": "5.2.1",
-    "eslint-plugin-promise": "3.6.0",
-    "mocha": "4.0.1",
+    "eslint": "4.19.1",
+    "eslint-config-k03mad": "0.2.6",
+    "eslint-plugin-const-case": "1.0.3",
+    "eslint-plugin-node": "6.0.1",
+    "eslint-plugin-promise": "3.7.0",
+    "mocha": "5.0.5",
     "pre-commit": "1.2.2"
   },
   "scripts": {
@@ -34,5 +34,5 @@
     "test": "mocha tests --recursive"
   },
   "precommit": "lint",
-  "license": "MIT"
+  "license": "Unlicense"
 }
