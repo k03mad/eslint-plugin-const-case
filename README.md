@@ -1,6 +1,8 @@
-[![NPM](https://nodei.co/npm/eslint-plugin-const-case.png?downloads=true&stars=true)](https://nodei.co/npm/eslint-plugin-const-case/)
+[![Dependencies](https://david-dm.org/k03mad/eslint-plugin-const-case.svg)](https://github.com/k03mad/eslint-plugin-const-case/blob/master/package.json) [![LCommit](https://img.shields.io/github/last-commit/k03mad/eslint-plugin-const-case.svg)](https://github.com/k03mad/eslint-plugin-const-case/commits/master)
 
-[![dependencies Status](https://david-dm.org/k03mad/eslint-plugin-const-case/status.svg)](https://david-dm.org/k03mad/eslint-plugin-const-case)
+[![Downloads](https://img.shields.io/npm/dt/eslint-plugin-const-case.svg)](https://www.npmjs.com/package/eslint-plugin-const-case) [![NPM](https://img.shields.io/npm/v/eslint-plugin-const-case.svg)](https://www.npmjs.com/package/eslint-plugin-const-case)
+
+![Size](https://img.shields.io/github/repo-size/k03mad/eslint-plugin-const-case.svg) [![install size](https://packagephobia.now.sh/badge?p=eslint-plugin-const-case)](https://packagephobia.now.sh/result?p=eslint-plugin-const-case)
 
 ## Installation
 
