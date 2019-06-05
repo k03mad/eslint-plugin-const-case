@@ -1,145 +1,56 @@
+'use strict';
 /* eslint-disable quotes */
 /* eslint-disable no-template-curly-in-string */
+/* eslint-disable node/no-unpublished-require */
 
-const rule = require('../lib/rules/uppercase');
 const msg = require('../lib/message');
+const rule = require('../lib/rules/uppercase');
 const {RuleTester} = require('eslint');
 
 const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2017}});
 
 const TYPE = 'VariableDeclaration';
+const lower = [{TYPE, message: msg.lower}];
+const upper = [{TYPE, message: msg.upper}];
 
 ruleTester.run('const-uppercase', rule, {
 
     invalid: [
-        {
-            code: "const foo = 'bar'",
-            errors: [{TYPE, message: msg.upper}]
-        },
-        {
-            code: "const foo = 42",
-            errors: [{TYPE, message: msg.upper}]
-        },
-        {
-            code: "const foo = -42",
-            errors: [{TYPE, message: msg.upper}]
-        },
-        {
-            code: "const FOO = []",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = ['bar', 42]",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: 42, baz: 'qux'}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = `42 ${bar}`",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = bar()",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = bar => baz",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = bar ? 'baz' : qux",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = bar.baz()",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "async function foo() {const BAR = await baz()}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "for (const FOO of bar) {}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = bar.baz",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = bar * baz",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = new bar()",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: baz => qux}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = baz || qux",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = [bar, baz]",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: 42, baz: {qux: 'quux'}}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: 42, baz: ['qux', 'quux']}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: 42, baz: {}}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: 42, baz: []}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: 42, baz: [`${qux} quux`]}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: `${baz} qux`, quux: ['']}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: [`${baz} qux`], quux: ['']}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: {asd: '123'}, quux: [`${baz} quz`]}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = {bar: [''], quux: [`${baz} quz`]}",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = 2 * 2",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = 2 * 2 * 10",
-            errors: [{TYPE, message: msg.lower}]
-        },
-        {
-            code: "const FOO = 2 * bar",
-            errors: [{TYPE, message: msg.lower}]
-        }
+        {errors: upper, code: "const foo = 'bar'"},
+        {errors: upper, code: "const foo = 42"},
+        {errors: upper, code: "const foo = -42"},
+
+        {errors: lower, code: "const FOO = []"},
+        {errors: lower, code: "const FOO = {}"},
+        {errors: lower, code: "const FOO = ['bar', 42]"},
+        {errors: lower, code: "const FOO = {bar: 42, baz: 'qux'}"},
+        {errors: lower, code: "const FOO = `42 ${bar}`"},
+        {errors: lower, code: "const FOO = bar()"},
+        {errors: lower, code: "const FOO = bar => baz"},
+        {errors: lower, code: "const FOO = bar ? 'baz' : qux"},
+        {errors: lower, code: "const FOO = bar.baz()"},
+        {errors: lower, code: "const FOO = bar.baz('qux')"},
+        {errors: lower, code: "async function foo() {const BAR = await baz()}"},
+        {errors: lower, code: "for (const FOO of bar) {}"},
+        {errors: lower, code: "const FOO = bar.baz"},
+        {errors: lower, code: "const FOO = bar * baz"},
+        {errors: lower, code: "const FOO = new bar()"},
+        {errors: lower, code: "const FOO = {bar: baz => qux}"},
+        {errors: lower, code: "const FOO = baz || qux"},
+        {errors: lower, code: "const FOO = [bar, baz]"},
+        {errors: lower, code: "const FOO = {bar: 42, baz: {qux: 'quux'}}"},
+        {errors: lower, code: "const FOO = {bar: 42, baz: ['qux', 'quux']}"},
+        {errors: lower, code: "const FOO = {bar: 42, baz: {}}"},
+        {errors: lower, code: "const FOO = {bar: 42, baz: []}"},
+        {errors: lower, code: "const FOO = {bar: 42, baz: [`${qux} quux`]}"},
+        {errors: lower, code: "const FOO = {bar: `${baz} qux`, quux: ['']}"},
+        {errors: lower, code: "const FOO = {bar: [`${baz} qux`], quux: ['']}"},
+        {errors: lower, code: "const FOO = {bar: {asd: '123'}, quux: [`${baz} quz`]}"},
+        {errors: lower, code: "const FOO = {bar: [''], quux: [`${baz} quz`]}"},
+        {errors: lower, code: "const FOO = 2 * 2"},
+        {errors: lower, code: "const FOO = 2 * 2 * 10"},
+        {errors: lower, code: "const FOO = 2 * bar"},
+        {errors: lower, code: "const MENU_ITEMS = document.querySelectorAll('.menu-list__item')"},
     ],
 
     valid: [
@@ -182,6 +93,7 @@ ruleTester.run('const-uppercase', rule, {
         "const foo = require(bar)",
         "const FOO = require(bar)",
         "const _ = 'foo'",
-        "const $ = 'bar'"
-    ]
+        "const $ = 'bar'",
+        "const menuItems = document.querySelectorAll('.menu-list__item')",
+    ],
 });
