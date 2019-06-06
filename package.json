@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-const-case",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Check for const case",
   "keywords": [
     "eslint",
@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "eslint": "5.16.0",
-    "eslint-config-k03mad": "2.4.2",
-    "eslint-plugin-const-case": "1.0.4",
+    "eslint-config-k03mad": "2.4.3",
+    "eslint-plugin-const-case": "1.1.3",
     "eslint-plugin-jsdoc": "7.2.3",
     "eslint-plugin-node": "9.1.0",
     "eslint-plugin-optimize-regex": "1.1.6",
