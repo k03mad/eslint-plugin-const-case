@@ -3,54 +3,66 @@
 /* eslint-disable no-template-curly-in-string */
 /* eslint-disable node/no-unpublished-require */
 
-const msg = require('../lib/message');
-const rule = require('../lib/rules/uppercase');
+const msg = require('../plugin/lib/message');
+const rule = require('../plugin/rules/uppercase');
 const {RuleTester} = require('eslint');
 
 const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2017}});
 
-const TYPE = 'VariableDeclaration';
-const lower = [{TYPE, message: msg.lower}];
-const upper = [{TYPE, message: msg.upper}];
+/**
+ * Check code for const case
+ * @param {string} constCase
+ * @param {string} code
+ * @returns {object}
+ */
+const checkCode = (constCase, code) => ({
+    errors: [
+        {
+            TYPE: 'VariableDeclaration',
+            message: msg[constCase],
+        },
+    ],
+    code,
+});
 
 ruleTester.run('const-uppercase', rule, {
 
     invalid: [
-        {errors: upper, code: "const foo = 'bar'"},
-        {errors: upper, code: "const foo = 42"},
-        {errors: upper, code: "const foo = -42"},
+        checkCode('upper', "const foo = 'bar'"),
+        checkCode('upper', "const foo = 42"),
+        checkCode('upper', "const foo = -42"),
 
-        {errors: lower, code: "const FOO = []"},
-        {errors: lower, code: "const FOO = {}"},
-        {errors: lower, code: "const FOO = ['bar', 42]"},
-        {errors: lower, code: "const FOO = {bar: 42, baz: 'qux'}"},
-        {errors: lower, code: "const FOO = `42 ${bar}`"},
-        {errors: lower, code: "const FOO = bar()"},
-        {errors: lower, code: "const FOO = bar => baz"},
-        {errors: lower, code: "const FOO = bar ? 'baz' : qux"},
-        {errors: lower, code: "const FOO = bar.baz()"},
-        {errors: lower, code: "const FOO = bar.baz('qux')"},
-        {errors: lower, code: "async function foo() {const BAR = await baz()}"},
-        {errors: lower, code: "for (const FOO of bar) {}"},
-        {errors: lower, code: "const FOO = bar.baz"},
-        {errors: lower, code: "const FOO = bar * baz"},
-        {errors: lower, code: "const FOO = new bar()"},
-        {errors: lower, code: "const FOO = {bar: baz => qux}"},
-        {errors: lower, code: "const FOO = baz || qux"},
-        {errors: lower, code: "const FOO = [bar, baz]"},
-        {errors: lower, code: "const FOO = {bar: 42, baz: {qux: 'quux'}}"},
-        {errors: lower, code: "const FOO = {bar: 42, baz: ['qux', 'quux']}"},
-        {errors: lower, code: "const FOO = {bar: 42, baz: {}}"},
-        {errors: lower, code: "const FOO = {bar: 42, baz: []}"},
-        {errors: lower, code: "const FOO = {bar: 42, baz: [`${qux} quux`]}"},
-        {errors: lower, code: "const FOO = {bar: `${baz} qux`, quux: ['']}"},
-        {errors: lower, code: "const FOO = {bar: [`${baz} qux`], quux: ['']}"},
-        {errors: lower, code: "const FOO = {bar: {asd: '123'}, quux: [`${baz} quz`]}"},
-        {errors: lower, code: "const FOO = {bar: [''], quux: [`${baz} quz`]}"},
-        {errors: lower, code: "const FOO = 2 * 2"},
-        {errors: lower, code: "const FOO = 2 * 2 * 10"},
-        {errors: lower, code: "const FOO = 2 * bar"},
-        {errors: lower, code: "const MENU_ITEMS = document.querySelectorAll('.menu-list__item')"},
+        checkCode('lower', "const FOO = []"),
+        checkCode('lower', "const FOO = {}"),
+        checkCode('lower', "const FOO = ['bar', 42]"),
+        checkCode('lower', "const FOO = {bar: 42, baz: 'qux'}"),
+        checkCode('lower', "const FOO = `42 ${bar}`"),
+        checkCode('lower', "const FOO = bar()"),
+        checkCode('lower', "const FOO = bar => baz"),
+        checkCode('lower', "const FOO = bar ? 'baz' : qux"),
+        checkCode('lower', "const FOO = bar.baz()"),
+        checkCode('lower', "const FOO = bar.baz('qux')"),
+        checkCode('lower', "async function foo() {const BAR = await baz()}"),
+        checkCode('lower', "for (const FOO of bar) {}"),
+        checkCode('lower', "const FOO = bar.baz"),
+        checkCode('lower', "const FOO = bar * baz"),
+        checkCode('lower', "const FOO = new bar()"),
+        checkCode('lower', "const FOO = {bar: baz => qux}"),
+        checkCode('lower', "const FOO = baz || qux"),
+        checkCode('lower', "const FOO = [bar, baz]"),
+        checkCode('lower', "const FOO = {bar: 42, baz: {qux: 'quux'}}"),
+        checkCode('lower', "const FOO = {bar: 42, baz: ['qux', 'quux']}"),
+        checkCode('lower', "const FOO = {bar: 42, baz: {}}"),
+        checkCode('lower', "const FOO = {bar: 42, baz: []}"),
+        checkCode('lower', "const FOO = {bar: 42, baz: [`${qux} quux`]}"),
+        checkCode('lower', "const FOO = {bar: `${baz} qux`, quux: ['']}"),
+        checkCode('lower', "const FOO = {bar: [`${baz} qux`], quux: ['']}"),
+        checkCode('lower', "const FOO = {bar: {asd: '123'}, quux: [`${baz} quz`]}"),
+        checkCode('lower', "const FOO = {bar: [''], quux: [`${baz} quz`]}"),
+        checkCode('lower', "const FOO = 2 * 2"),
+        checkCode('lower', "const FOO = 2 * 2 * 10"),
+        checkCode('lower', "const FOO = 2 * bar"),
+        checkCode('lower', "const MENU_ITEMS = document.querySelectorAll('.menu-list__item')"),
     ],
 
     valid: [
