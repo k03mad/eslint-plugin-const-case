@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('requireindex')(`${__dirname}/rules`);
+module.exports.rules = require('requireindex')(`${__dirname}/rules`);
