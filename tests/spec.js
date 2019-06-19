@@ -1,14 +1,12 @@
 'use strict';
 
-/* eslint-disable no-template-curly-in-string */
-/* eslint-disable node/no-unpublished-require */
-
-const msg = require('../lib/message');
-const rule = require('../lib/rules/uppercase');
+const message = require('../plugin/lib/message');
+const rule = require('../plugin/rules/uppercase');
 const {RuleTester} = require('eslint');
 
 const ruleTester = new RuleTester({parserOptions: {ecmaVersion: 2017}});
 
+/* eslint-disable no-template-curly-in-string */
 const invalid = [
     ['upper', 'const foo = "bar"'],
     ['upper', 'const foo = \'bar\''],
@@ -46,6 +44,8 @@ const invalid = [
     ['lower', 'const FOO = new bar()'],
     ['lower', 'const FOO_BAR = document.querySelectorAll("qux")'],
     ['lower', 'for (const FOO of bar) {}'],
+    ['lower', 'let FOO'],
+    ['lower', 'let FOO = "bar"'],
 ];
 
 const valid = [
@@ -92,6 +92,10 @@ const valid = [
     'const foo = require(bar)',
     'const fooBar = document.querySelectorAll("qux")',
     'for (const foo of bar) {}',
+    'let foo',
+    'let foo = "bar"',
+    'let _ = "foo"',
+    'let $ = "bar"',
 ];
 
 ruleTester.run('const-uppercase', rule, {
@@ -99,7 +103,7 @@ ruleTester.run('const-uppercase', rule, {
         errors: [
             {
                 TYPE: 'VariableDeclaration',
-                message: msg[constCase],
+                message: message[constCase],
             },
         ],
         code,
