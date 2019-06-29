@@ -60,6 +60,7 @@ const valid = [
     'async function foo() {const bar = await baz()}',
     'const _ = "foo"',
     'const $ = "bar"',
+    'const $ = bar',
     'const {foo} = bar',
     'const foo = ["bar", 42]',
     'const foo = []',

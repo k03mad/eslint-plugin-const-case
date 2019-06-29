@@ -17,7 +17,7 @@ module.exports = {
                     isUpperCase(name)
                         && !isLiteral(init)
                         && !isCalleeRequire(init)
-                        && !isSpecialChars()
+                        && !isSpecialChars(name)
                         && report(node, lower);
 
                 });
