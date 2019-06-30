@@ -1,29 +1,53 @@
 'use strict';
 
-// return true if node kind name case is upper
+/**
+ * Node kind name case is upper
+ * @param {string} name
+ * @returns {boolean}
+ */
 const isUpperCase = name => name
     && name === name.toUpperCase();
 
-// return true if node kind name conatins only special chars
+/**
+ * Node kind name contains only special chars
+ * @param {string} name
+ * @returns {boolean}
+ */
 const isSpecialChars = name => name
     && /^[$_]$/.test(name);
 
-// return true if node kind using for require
+/**
+ * Node kind is using for require
+ * @param {object} init
+ * @returns {boolean}
+ */
 const isCalleeRequire = init => init
     && init.callee
     && init.callee.name === 'require';
 
-// return true if node kind type is a literal
+/**
+ * Node kind type is a literal
+ * @param {object} init
+ * @returns {boolean}
+ */
 const isInitTypeLiteral = init => init
     && init.type === 'Literal';
 
-// return true if node kind type is a negative literal
+/**
+ * Node kind type is a negative literal
+ * @param {object} init
+ * @returns {boolean}
+ */
 const isInitTypeNegativeLiteral = init => init
     && init.type === 'UnaryExpression'
     && init.operator === '-'
     && init.argument.type === 'Literal';
 
-// return true if node kind type is a any literal
+/**
+ * Node kind type is is an any literal
+ * @param {object} init
+ * @returns {boolean}
+ */
 const isLiteral = init => isInitTypeLiteral(init) || isInitTypeNegativeLiteral(init);
 
 module.exports = {
