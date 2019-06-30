@@ -1,1 +1,1 @@
-module.exports = {'extends': 'k03mad'};
+module.exports = {extends: 'k03mad'};
