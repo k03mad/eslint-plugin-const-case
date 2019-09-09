@@ -19,17 +19,17 @@
     "requireindex": "1.2.0"
   },
   "devDependencies": {
-    "eslint": "5.16.0",
-    "eslint-config-k03mad": "2.5.3",
-    "eslint-plugin-const-case": "1.2.1",
-    "eslint-plugin-jsdoc": "10.0.2",
-    "eslint-plugin-node": "9.1.0",
+    "eslint": "6.3.0",
+    "eslint-config-k03mad": "3.0.0",
+    "eslint-plugin-const-case": "1.2.2",
+    "eslint-plugin-jsdoc": "15.9.1",
+    "eslint-plugin-node": "10.0.0",
     "eslint-plugin-optimize-regex": "1.1.6",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-sonarjs": "0.4.0",
     "eslint-plugin-sort-requires": "2.1.0",
-    "eslint-plugin-unicorn": "9.1.1",
-    "mocha": "6.1.4",
+    "eslint-plugin-unicorn": "10.0.0",
+    "mocha": "6.2.0",
     "pre-commit": "1.2.2"
   },
   "scripts": {
