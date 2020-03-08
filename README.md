@@ -34,5 +34,5 @@ Examples of correct code for this rule:
 const FOO = 'bar';
 const FOO = 42;
 const FOO = -42;
-# else with lowercase
+// else with lowercase
 ```
