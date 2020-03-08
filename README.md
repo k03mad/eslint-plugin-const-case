@@ -34,13 +34,5 @@ Examples of correct code for this rule:
 const FOO = 'bar';
 const FOO = 42;
 const FOO = -42;
-
-const foo = ['bar', 42];
-const foo = {bar: 42, baz: 'qux'};
-const foo = 1000 * 60 * 10;
-const foo = `42 ${bar}`;
-const foo = bar();
-const foo = bar ? baz : 42;
-const foo = bar.baz();
-const foo = bar => baz;
+# else with lowercase
 ```
